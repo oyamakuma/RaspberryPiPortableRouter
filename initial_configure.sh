@@ -22,25 +22,21 @@ backup_file() {
 
 # touch_file path_to_file [--sudo]
 touch_file() {
-  declare -r CMD_OPT="$2"
-
-  if [ -z "${CMD_OPT}" ]; then
-    _touch_file
-  elif [ "${CMD_OPT}" -eq '--sudo' ]; then
-    sudo _touch_file
-  else
-    printf 'ERROR: Invalid option: %s\n' "${CMD_OPT}"
-  fi
-}
-
-# _touch_file path_to_file
-_touch_file() {
   # Get absolute path (starts with /)
   declare -r FULLPATH_TO_FILE="$(readlink -f "$1")"
   declare -r FULLPATH_TO_DIRECTORY="$(dirname "${FULLPATH_TO_FILE}")"
 
-  mkdir -p "${FULLPATH_TO_DIRECTORY}"
-  touch "${FULLPATH_TO_FILE}"
+  declare -r CMD_OPT="$2"
+
+  if [ -z "${CMD_OPT}" ]; then
+    mkdir -p "${FULLPATH_TO_DIRECTORY}"
+    touch "${FULLPATH_TO_FILE}"
+  elif [ "${CMD_OPT}" = '--sudo' ]; then
+    sudo mkdir -p "${FULLPATH_TO_DIRECTORY}"
+    sudo touch "${FULLPATH_TO_FILE}"
+  else
+    printf 'ERROR: Invalid option: %s\n' "${CMD_OPT}"
+  fi
 }
 
 
