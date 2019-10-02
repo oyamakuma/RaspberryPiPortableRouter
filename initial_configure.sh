@@ -106,6 +106,7 @@ expand-hosts
 domain=denjo.local
 
 EOF
+)
 
 
 # Wi-Fi Software Access Point
