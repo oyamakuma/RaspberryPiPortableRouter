@@ -3,7 +3,11 @@ set -u
 
 source "$(readlink -f './share/index.conf')"
 
-source "$(readlink -f './dnsmasq.conf')"
+declare -r DHCP_IP_LIFETIME='8h'
+declare -r DOMAIN_SEARCH_SERVER='dns.example.com'
+declare -r DNS_MASQ_FILE='/etc/dnsmasq.conf'
+declare -r HOST_NAME='denjo.local'
+
 
 # Install DHCP server
 sudo apt install dnsmasq

@@ -3,7 +3,7 @@ set -u
 
 source "$(readlink -f './share/index.conf')"
 
-source "$(readdlink -f './apt.conf')"
+declare -r APT_FILE='/etc/apt/apt.conf'
 
 
 touch_file "${APT_FILE}" --sudo

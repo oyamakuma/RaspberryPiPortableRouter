@@ -3,6 +3,8 @@ set -u
 
 source "$(readlink -f './share/index.conf')"
 
+declare -r SNAPD_SERVICE_OVERRIDE='/etc/systemd/system/snapd.service.d/override.conf'
+
 sudo apt install snapd
 
 # Or sudo systemctl edit snapd.service

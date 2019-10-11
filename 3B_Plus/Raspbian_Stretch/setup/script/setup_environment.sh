@@ -3,7 +3,8 @@ set -u
 
 source "$(readlink -f './share/index.conf')"
 
-source "$(readlink -f './environment.conf')"
+declare -r ENVIRONMENT_FILE='/etc/environment'
+
 
 # Setup proxy configuration
 backup_file "${ENVIRONMENT_FILE}"

@@ -3,4 +3,4 @@ set -u
 
 source "$(readlink -f './share/index.conf')"
 
-sudo apt install apache2 mariadb-server
+sudo apt install apache2 mariadb-server php7.0

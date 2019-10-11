@@ -3,7 +3,7 @@ set -u
 
 source "$(readlink -f './share/index.conf')"
 
-source "$(readlink -f './timesyncd.conf')"
+declare -r TIMESYNC_FILE='/etc/systemd/timesyncd.conf'
 
 backup_file "${TIMESYNC_FILE}"
 
