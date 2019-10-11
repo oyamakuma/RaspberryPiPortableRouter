@@ -6,18 +6,18 @@ declare -r WD_PATH="$(dirname "$(readlink -f "${BASH_SOURCE}")")"
 source "${WD_PATH}/share/index.conf"
 
 # Configure system proxy
-./setup_environment.sh
+"${WD_PATH}/setup_environment.sh"
 
 # Setup NTP timesync
-./setup_timesyncd.sh
+"${WD_PATH}/setup_timesyncd.sh"
 
 # Setup APT proxy
-./setup_apt.sh
+"${WD_PATH}/setup_apt.sh"
 
-./install_dnsmasq.sh
-./install_snapd.sh
-./install_vim.sh
+"${WD_PATH}/install_dnsmasq.sh"
+"${WD_PATH}/install_snapd.sh"
+"${WD_PATH}/install_vim.sh"
 
-./setup_access_point.sh
-./install_server.sh
-./setup_local_CA.sh
+"${WD_PATH}/setup_access_point.sh"
+"${WD_PATH}/install_server.sh"
+"${WD_PATH}/setup_local_CA.sh"
